@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { TodoManagerComponent } from './todo-manager/todo-manager.component';
 import { TodoItemComponent } from "./todo-item/todo-item.component";
+import { TodoNavComponent } from "./todo-nav/todo-nav.component";
 
 @NgModule({
   imports: [
@@ -12,7 +14,8 @@ import { TodoItemComponent } from "./todo-item/todo-item.component";
   ],
   declarations: [
     TodoManagerComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    TodoNavComponent
   ],
   providers: [],
 })

@@ -9,14 +9,15 @@ import { TodoItem } from '../shared/todo-item.model';
 export class TodoManagerComponent {
   private items: TodoItem[] = [];
 
-  constructor() {
-  }
-
-  public addTodoItem(item: HTMLInputElement) {
+  public add(item: HTMLInputElement) {
     if(!item.value)
       return;
 
     this.items.unshift(new TodoItem({Title: item.value}));
     item.value = "";
+  }
+
+  public remove(index: number) {
+    this.items.splice(index, 1);
   }
 }

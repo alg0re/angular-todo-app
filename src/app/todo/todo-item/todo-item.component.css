@@ -2,3 +2,17 @@
   margin-top: 6px;
   margin-bottom: 6px;
 }
+
+.card-header {
+  padding: 0 .5rem;
+}
+
+.btn-edit button {
+  margin-right: 5px;
+  padding: .15rem .5rem;
+}
+
+.todo-finished {
+  text-decoration: line-through;
+  color: #adb5bd;
+}

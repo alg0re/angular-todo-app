@@ -1,0 +1,20 @@
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link" href="#" (click)="isChecked()">
+          <i class="far"
+             [class.fa-circle]="!checked"
+             [class.fa-check-circle]="checked">
+          </i>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#" (click)="edit()">
+            <i class="far fa-edit"></i>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#" (click)="remove()">
+            <i class="far fa-times-circle"></i>
+        </a>
+    </li>
+  </ul>
