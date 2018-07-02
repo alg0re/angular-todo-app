@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-header">
+    <todo-item-nav (onCompleted)="onCompleted.emit()"
+                   (onEdit)="onEdit.emit()"
+                   (onRemove)="onRemove.emit()">
+    </todo-item-nav>
+  </div>
+  <div class="card-body">
+    <ng-template [ngIf]="!isEdit" [ngIfElse]="edit">
+      <h5 class="card-title">{{model.Title}}</h5>
+    </ng-template>
+  </div>
+</div>
+
+<ng-template #edit>
+  <div class="edit-template">
+      <div class="form-group">
+        <input #todoTitle
+               type="text"
+               class="form-control"
+               id="title"
+               aria-describedby="title"
+               placeholder="Enter title"
+               value="{{model.Title}}">
+      </div>
+
+      <div class="btn-edit">
+        <button type="submit"
+                class="btn btn-dark btn-sm"
+                (click)="update(todoTitle.value)">Update
+        </button>
+
+        <button type="submit"
+                class="btn btn-dark btn-sm"
+                (click)="isEdit = false">Cancel
+        </button>
+      </div>
+  </div>
+</ng-template>

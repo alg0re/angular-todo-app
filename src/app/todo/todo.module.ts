@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { TodoManagerComponent } from './todo-manager/todo-manager.component';
-import { TodoItemComponent } from "./todo-item/todo-item.component";
-import { TodoNavComponent } from "./todo-nav/todo-nav.component";
+import { TodoManagerComponent } from './containers/todo-manager/todo-manager.component';
+import { TodoInputComponent } from './components/todo-input/todo-input.component';
+import { TodoItemComponent } from './components/todo-item/todo-item.component';
+import { TodoItemNavComponent } from './components/todo-item-nav/todo-item-nav.component';
+import { TodoLoadService } from './services/todo-load.service';
 
 @NgModule({
   imports: [
@@ -14,9 +16,12 @@ import { TodoNavComponent } from "./todo-nav/todo-nav.component";
   ],
   declarations: [
     TodoManagerComponent,
+    TodoInputComponent,
     TodoItemComponent,
-    TodoNavComponent
+    TodoItemNavComponent
   ],
-  providers: [],
+  providers: [
+    TodoLoadService
+  ],
 })
 export class TodoModule { }

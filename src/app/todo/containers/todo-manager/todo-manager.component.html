@@ -1,0 +1,7 @@
+<todo-input (onCreate)='create($event)'></todo-input>
+
+<div id="todos">
+    <div *ngFor="let item of items$ | async ; let i = index">
+        <todo-item [model]="item"></todo-item>
+    </div>
+</div>
