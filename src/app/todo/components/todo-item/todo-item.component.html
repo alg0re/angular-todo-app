@@ -1,13 +1,16 @@
 <div class="card">
   <div class="card-header">
-    <todo-item-nav (onCompleted)="onCompleted.emit()"
+    <todo-item-nav [isCompleted]="model.IsCompleted"
+                   (onCompleted)="onCompleted.emit($event)"
                    (onEdit)="onEdit.emit()"
                    (onRemove)="onRemove.emit()">
     </todo-item-nav>
   </div>
   <div class="card-body">
     <ng-template [ngIf]="!isEdit" [ngIfElse]="edit">
-      <h5 class="card-title">{{model.Title}}</h5>
+      <h5 class="card-title"
+          [class.completed]="model.IsCompleted">{{model.Title}}
+      </h5>
     </ng-template>
   </div>
 </div>

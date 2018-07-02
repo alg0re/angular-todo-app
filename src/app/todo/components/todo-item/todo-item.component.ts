@@ -10,7 +10,7 @@ import { TodoItem } from '../../models/todo-item.model';
 export class TodoItemComponent {
   @Input() model: TodoItem;
   @Input() isEdit: boolean;
-  @Output() onCompleted = new EventEmitter();
+  @Output() onCompleted = new EventEmitter<{id: number, isComleted: boolean}>();
   @Output() onEdit = new EventEmitter();
   @Output() onRemove = new EventEmitter();
 

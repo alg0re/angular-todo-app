@@ -20,7 +20,11 @@ export class TodoManagerComponent {
   }
 
   public create(title: string) {
-    this.store.dispatch(new TodoActions.CreateItem(title));
+    this.store.dispatch(new TodoActions.Create(title));
+  }
+
+  public isCompleted(value: {id: number, isCompleted: boolean}) {
+    this.store.dispatch(new TodoActions.IsCompleted(value));
   }
 
 }

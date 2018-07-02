@@ -8,7 +8,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 export class TodoItemNavComponent {
   @Input() isCompleted: boolean = false;
-  @Output() onComleted = new EventEmitter();
+  @Output() onCompleted = new EventEmitter<boolean>();
   @Output() onEdit = new EventEmitter();
   @Output() onRemove = new EventEmitter();
 }

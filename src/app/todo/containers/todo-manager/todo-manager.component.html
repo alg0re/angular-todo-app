@@ -2,6 +2,8 @@
 
 <div id="todos">
     <div *ngFor="let item of items$ | async ; let i = index">
-        <todo-item [model]="item"></todo-item>
+        <todo-item [model]="item"
+                   (onCompleted)='isCompleted({id: i, isCompleted: $event})'>
+        </todo-item>
     </div>
 </div>
