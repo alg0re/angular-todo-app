@@ -3,7 +3,8 @@ import { Action } from '@ngrx/store';
 export enum TodoActionTypes {
   Create = '[Todo] Create',
   IsCompleted = '[Todo] IsCompleted',
-  Remove = '[Todo] Remove'
+  Remove = '[Todo] Remove',
+  Update = '[Todo] Update'
 }
 
 export class Create implements Action {
@@ -21,7 +22,13 @@ export class Remove implements Action {
   constructor(public payload: number){}
 }
 
+export class Update implements Action {
+  readonly type = TodoActionTypes.Update;
+  constructor(public payload: {index: number, title: string}){}
+}
+
 export type TodoActionUnion =
 | Create
 | IsCompleted
-| Remove;
+| Remove
+| Update;

@@ -30,4 +30,8 @@ export class TodoManagerComponent {
   public remove(index: number) {
     this.store.dispatch(new TodoActions.Remove(index));
   }
+
+  public update(value: {index: number, title: string}) {
+    this.store.dispatch(new TodoActions.Update(value));
+  }
 }

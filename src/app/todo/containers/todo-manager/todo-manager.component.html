@@ -5,7 +5,8 @@
         <todo-item [model]="item"
                    [index]="i"
                    (onCompleted)="isCompleted($event)"
-                   (onRemove)="remove($event)">
+                   (onRemove)="remove($event)"
+                   (onUpdate)="update($event)">
         </todo-item>
     </div>
 </div>

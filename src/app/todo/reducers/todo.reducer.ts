@@ -32,6 +32,11 @@ export function todoReducer(
       return {
         ...state
       }
+    case TodoActionTypes.Update:
+      state.items[action.payload.index].Title = action.payload.title;
+      return {
+        ...state
+      }
     default:
       return state;
   }
