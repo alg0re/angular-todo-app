@@ -9,7 +9,9 @@ export class TodoInputComponent {
   @Output() onCreate = new EventEmitter<string>();
 
   public create(el: HTMLInputElement): void {
-    this.onCreate.emit(el.value);
-    el.value = '';
+    if (el.value.trim().length !== 0) {
+      this.onCreate.emit(el.value);
+      el.value = '';
+    }
   }
 }

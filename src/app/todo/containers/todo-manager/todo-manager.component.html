@@ -3,7 +3,9 @@
 <div id="todos">
     <div *ngFor="let item of items$ | async ; let i = index">
         <todo-item [model]="item"
-                   (onCompleted)='isCompleted({id: i, isCompleted: $event})'>
+                   [index]="i"
+                   (onCompleted)="isCompleted($event)"
+                   (onRemove)="remove($event)">
         </todo-item>
     </div>
 </div>

@@ -23,12 +23,15 @@ export function todoReducer(
         items: [new TodoItem({ Title: title, IsCompleted: false }), ...state.items]
       }
     case TodoActionTypes.IsCompleted:
-      const completed = action.payload;
-      state.items[completed.id].IsCompleted = !completed.isCompleted;
+      state.items[action.payload].IsCompleted = !state.items[action.payload].IsCompleted;
       return {
         ...state
       };
-
+    case TodoActionTypes.Remove:
+      state.items.splice(action.payload, 1);
+      return {
+        ...state
+      }
     default:
       return state;
   }

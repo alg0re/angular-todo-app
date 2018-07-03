@@ -23,8 +23,11 @@ export class TodoManagerComponent {
     this.store.dispatch(new TodoActions.Create(title));
   }
 
-  public isCompleted(value: {id: number, isCompleted: boolean}) {
-    this.store.dispatch(new TodoActions.IsCompleted(value));
+  public isCompleted(index: number) {
+    this.store.dispatch(new TodoActions.IsCompleted(index));
   }
 
+  public remove(index: number) {
+    this.store.dispatch(new TodoActions.Remove(index));
+  }
 }

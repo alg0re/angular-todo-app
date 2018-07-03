@@ -1,9 +1,9 @@
 <div class="card">
   <div class="card-header">
     <todo-item-nav [isCompleted]="model.IsCompleted"
-                   (onCompleted)="onCompleted.emit($event)"
+                   (onCompleted)="onCompleted.emit(index)"
                    (onEdit)="onEdit.emit()"
-                   (onRemove)="onRemove.emit()">
+                   (onRemove)="onRemove.emit(index)">
     </todo-item-nav>
   </div>
   <div class="card-body">
