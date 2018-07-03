@@ -1,8 +1,8 @@
 <div class="card">
   <div class="card-header">
     <todo-item-nav [isCompleted]="model.IsCompleted"
-                   (onCompleted)="onCompleted.emit(index)"
-                   (onEdit)="isEdit = true"
+                   (onCompleted)="canComplete()"
+                   (onEdit)="canEdit()"
                    (onRemove)="onRemove.emit(index)">
     </todo-item-nav>
   </div>

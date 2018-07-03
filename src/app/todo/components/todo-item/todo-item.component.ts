@@ -14,12 +14,24 @@ export class TodoItemComponent {
   @Input() index: number;
   @Input() model: TodoItem;
   @Output() onCompleted = new EventEmitter<number>();
-  @Output() onUpdate = new EventEmitter<{index: number, title: string}>();
+  @Output() onUpdate = new EventEmitter<{ index: number, title: string }>();
   @Output() onRemove = new EventEmitter<number>();
 
+  public canEdit() {
+    if (!this.model.IsCompleted) {
+      this.isEdit = true;
+    }
+  }
+
+  public canComplete() {
+    if (!this.isEdit) {
+      this.onCompleted.emit(this.index)
+    }
+  }
+
   public update(title: string) {
-    if(title.trim().length > 0) {
-      this.onUpdate.emit({index: this.index, title: title});
+    if (title.trim().length > 0) {
+      this.onUpdate.emit({ index: this.index, title: title });
       this.isEdit = false;
     }
   }
