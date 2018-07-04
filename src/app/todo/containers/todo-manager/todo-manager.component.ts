@@ -3,8 +3,8 @@ import { TodoItem } from '../../models/todo-item.model';
 import { Store } from '@ngrx/store';
 import * as fromTodo from '../../reducers/todo.reducer';
 import * as TodoActions from '../../actions/todo.actions';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import * as appState from '../../../reducers/index';
 
 @Component({
   selector: 'todo-manager',
@@ -16,7 +16,7 @@ export class TodoManagerComponent {
 
   constructor(
     private store: Store<{todo: fromTodo.State}>) {
-      this.items$ = this.store.select('todo').pipe(map(t => t.items));
+      this.items$ = this.store.select(appState.getTodoItems);
   }
 
   public create(title: string) {

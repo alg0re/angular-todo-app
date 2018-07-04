@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { TodoModule } from './todo/todo.module';
 
-import { todoReducer } from './todo/reducers/todo.reducer';
+import { reducers } from './reducers/index';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { todoReducer } from './todo/reducers/todo.reducer';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({todo: todoReducer}),
+    StoreModule.forRoot(reducers),
     TodoModule
   ],
   providers: [],

@@ -2,13 +2,11 @@ import { TodoActionUnion, TodoActionTypes } from '../actions/todo.actions';
 import { TodoItem } from '../models/todo-item.model';
 
 export interface State {
-  items: TodoItem[],
-  completed: { id: number, isCompleted: boolean }
+  data: TodoItem[]
 }
 
 export const initialState: State = {
-  items: [],
-  completed: null
+  data: []
 }
 
 export function todoReducer(
@@ -20,20 +18,20 @@ export function todoReducer(
       const title = action.payload;
       return {
         ...state,
-        items: [new TodoItem({ Title: title, IsCompleted: false }), ...state.items]
+        data: [new TodoItem({ Title: title, IsCompleted: false }), ...state.data]
       }
     case TodoActionTypes.IsCompleted:
-      state.items[action.payload].IsCompleted = !state.items[action.payload].IsCompleted;
+      state.data[action.payload].IsCompleted = !state.data[action.payload].IsCompleted;
       return {
         ...state
       };
     case TodoActionTypes.Remove:
-      state.items.splice(action.payload, 1);
+      state.data.splice(action.payload, 1);
       return {
         ...state
       }
     case TodoActionTypes.Update:
-      state.items[action.payload.index].Title = action.payload.title;
+      state.data[action.payload.index].Title = action.payload.title;
       return {
         ...state
       }
@@ -41,3 +39,5 @@ export function todoReducer(
       return state;
   }
 }
+
+export const getTodoItems = (state: State) => state.data;
