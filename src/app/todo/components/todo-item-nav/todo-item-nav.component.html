@@ -1,6 +1,6 @@
 <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link" href="#" (click)="onCompleted.emit()">
+    <a class="nav-link" (click)="onCompleted.emit()">
       <i class="far"
          [class.fa-circle]="!isCompleted"
          [class.fa-check-circle]="isCompleted">
@@ -8,12 +8,12 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#" (click)="onEdit.emit()">
+    <a class="nav-link" (click)="onEdit.emit()">
       <i class="far fa-edit"></i>
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#" (click)="onRemove.emit()">
+    <a class="nav-link" (click)="onRemove.emit()">
       <i class="far fa-times-circle"></i>
     </a>
   </li>

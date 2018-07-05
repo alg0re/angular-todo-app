@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TodoItem } from '../../models/todo-item.model';
 import { Store } from '@ngrx/store';
-import * as fromTodo from '../../reducers/todo.reducer';
 import * as TodoActions from '../../actions/todo.actions';
 import { Observable } from 'rxjs';
 import * as appState from '../../../reducers/index';
@@ -11,12 +10,16 @@ import * as appState from '../../../reducers/index';
   templateUrl: './todo-manager.component.html'
 })
 
-export class TodoManagerComponent {
+export class TodoManagerComponent implements OnInit {
   public items$: Observable<TodoItem[]>
 
   constructor(
-    private store: Store<{todo: fromTodo.State}>) {
+    private store: Store<{ todo: appState.State }>) {
       this.items$ = this.store.select(appState.getTodoItems);
+  }
+
+  public ngOnInit(): void {
+    this.store.dispatch(new TodoActions.Load());
   }
 
   public create(title: string) {
@@ -31,7 +34,7 @@ export class TodoManagerComponent {
     this.store.dispatch(new TodoActions.Remove(index));
   }
 
-  public update(value: {index: number, title: string}) {
+  public update(value: { index: number, title: string }) {
     this.store.dispatch(new TodoActions.Update(value));
   }
 }
