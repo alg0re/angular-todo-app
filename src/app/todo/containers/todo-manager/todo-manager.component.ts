@@ -11,11 +11,13 @@ import * as appState from '../../../reducers/index';
 })
 
 export class TodoManagerComponent implements OnInit {
-  public items$: Observable<TodoItem[]>
+  public items$: Observable<TodoItem[]>;
+  public loading$: Observable<boolean>;
 
   constructor(
     private store: Store<{ todo: appState.State }>) {
       this.items$ = this.store.select(appState.getTodoItems);
+      this.loading$ = this.store.select(appState.getLoading);
   }
 
   public ngOnInit(): void {

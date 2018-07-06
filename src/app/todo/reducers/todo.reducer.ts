@@ -3,14 +3,12 @@ import { TodoItem } from '../models/todo-item.model';
 
 export interface State {
   data: TodoItem[],
-  loading: boolean,
-  loaded: boolean
+  loading: boolean
 }
 
 export const initialState: State = {
   data: [],
-  loading: false,
-  loaded: false
+  loading: false
 }
 
 export function todoReducer(
@@ -21,22 +19,19 @@ export function todoReducer(
     case TodoActionTypes.Load:
       return {
         ...state,
-        loading: true,
-        loaded: false
+        loading: true
       }
     case TodoActionTypes.LoadSuccess:
       const loadedItems = action.payload;
       return {
         ...state,
         data: [...loadedItems, ...state.data],
-        loading: false,
-        loaded: true
+        loading: false
       }
     case TodoActionTypes.LoadFailed:
       return {
         ...state,
-        loading: false,
-        loaded: false
+        loading: false
       }
     case TodoActionTypes.Create:
       const title = action.payload;
@@ -63,5 +58,3 @@ export function todoReducer(
       return state;
   }
 }
-
-export const getTodoItems = (state: State) => state.data;
