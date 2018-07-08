@@ -3,7 +3,7 @@ import { TodoItem } from '../../models/todo-item.model';
 import { Store } from '@ngrx/store';
 import * as TodoActions from '../../actions/todo.actions';
 import { Observable } from 'rxjs';
-import * as appState from '../../../reducers/index';
+import * as appState from '../../../reducers';
 
 @Component({
   selector: 'todo-manager',

@@ -5,9 +5,10 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AppComponent } from './app.component';
 import { TodoModule } from './todo/todo.module';
+import { AuthModule } from './auth/auth.module';
 
-import { reducers } from './reducers/index';
-import { effects } from './todo/effects/index';
+import { reducers } from './reducers';
+import { effects } from './todo/effects';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { effects } from './todo/effects/index';
     BrowserModule,
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot(effects),
-    TodoModule
+    TodoModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
