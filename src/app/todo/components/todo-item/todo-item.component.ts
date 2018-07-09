@@ -9,7 +9,7 @@ import { TodoItem } from '../../models/todo-item.model';
 })
 
 export class TodoItemComponent {
-  private isEdit: boolean;
+  public isEdit: boolean;
 
   @Input() index: number;
   @Input() model: TodoItem;

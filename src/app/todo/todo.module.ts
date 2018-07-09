@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 import { TodoManagerComponent } from './containers/todo-manager/todo-manager.component';
@@ -8,9 +8,12 @@ import { TodoItemNavComponent } from './components/todo-item-nav/todo-item-nav.c
 import { TodoLoadService } from './services/todo-load.service';
 import { SharedModule } from '../shared/shared.module';
 
+import { TodoRoutingModule } from './todo-routing.module';
+
 @NgModule({
   imports: [
-    BrowserModule,
+    CommonModule,
+    TodoRoutingModule,
     SharedModule
   ],
   exports: [

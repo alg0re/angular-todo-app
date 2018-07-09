@@ -6,6 +6,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppComponent } from './app.component';
 import { TodoModule } from './todo/todo.module';
 import { AuthModule } from './auth/auth.module';
+import { AppRoutingModule } from './app-routing.module';
 
 import { reducers } from './reducers';
 import { effects } from './todo/effects';
@@ -19,7 +20,8 @@ import { effects } from './todo/effects';
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot(effects),
     TodoModule,
-    AuthModule
+    AuthModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
