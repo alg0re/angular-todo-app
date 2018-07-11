@@ -8,6 +8,7 @@ import { CircleLoaderComponent } from './circle-loader/circle-loader.component';
     CommonModule
   ],
   exports: [
+    CommonModule,
     CircleLoaderComponent
   ],
   declarations: [

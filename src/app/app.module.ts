@@ -9,7 +9,6 @@ import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
 
 import { reducers } from './reducers';
-import { effects } from './todo/effects';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,7 @@ import { effects } from './todo/effects';
   imports: [
     BrowserModule,
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot(effects),
+    EffectsModule.forRoot([]),
     TodoModule,
     AuthModule,
     AppRoutingModule

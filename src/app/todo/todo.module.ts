@@ -1,6 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { EffectsModule } from '@ngrx/effects';
+import { effects } from './effects'
 import { TodoManagerComponent } from './containers/todo-manager/todo-manager.component';
 import { TodoInputComponent } from './components/todo-input/todo-input.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
@@ -12,9 +13,10 @@ import { TodoRoutingModule } from './todo-routing.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     TodoRoutingModule,
-    SharedModule
+    EffectsModule.forFeature(effects),
+
   ],
   exports: [
     TodoManagerComponent

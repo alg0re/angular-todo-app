@@ -18,3 +18,6 @@ export const getLoading = createSelector(getTodoState, state => state.loading);
 
 export const getAuthState = createFeatureSelector<fromAuth.State>('auth');
 export const getPending = createSelector(getAuthState, state => state.pending);
+export const getLoggedIn = createSelector(getAuthState, state => state.loggedIn);
+export const getAccount = createSelector(getAuthState, state => state.account);
+export const getUser = createSelector(getAuthState, state => state.user);

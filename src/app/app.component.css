@@ -3,3 +3,11 @@
   text-align: center;
   font-size: 1.8em;
 }
+
+.nav {
+  font-size: 0.7em;
+}
+
+.nav a {
+  padding-right: 20px;
+}

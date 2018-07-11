@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Account } from '../../models/account.model';
 
 @Component({
   selector: 'login-page',
@@ -7,12 +7,14 @@ import { NgForm } from '@angular/forms';
 })
 
 export class LoginPageComponent {
-  @Output() onSubmit = new EventEmitter();
+  @Output() onSubmit = new EventEmitter<Account>();
 
   public submit(form: any) {
-    if (this.CantBeEmpty(form.login.value)
-        && this.CantBeEmpty(form.password.value)) {
-      this.onSubmit.emit();
+    const login = form.login.value;
+    const password = form.password.value;
+    if (this.CantBeEmpty(login)
+        && this.CantBeEmpty(password)) {
+      this.onSubmit.emit(new Account({Login: login, Password: password }));
     }
   }
 

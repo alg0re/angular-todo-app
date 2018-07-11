@@ -5,11 +5,20 @@ import { AuthManagerComponent } from './containers/auth-manager/auth-manager.com
 import { LoginPageComponent } from './components/login-page/login-page.component';
 
 import { AuthRoutingModule } from './auth-routing.module';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AuthService } from './services/auth.service';
+
+import { EffectsModule } from '@ngrx/effects';
+import { effects } from './effects';
+
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     FormsModule,
-    AuthRoutingModule
+    SharedModule,
+    AuthRoutingModule,
+    EffectsModule.forFeature(effects)
   ],
   exports: [
     AuthManagerComponent
@@ -18,6 +27,9 @@ import { AuthRoutingModule } from './auth-routing.module';
     AuthManagerComponent,
     LoginPageComponent
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuardService
+  ],
 })
 export class AuthModule { }
