@@ -1,0 +1,14 @@
+<circle-loader [loading]="loading$ | async"></circle-loader>
+
+<todo-input (onCreate)='create($event)'></todo-input>
+
+<div id="todos">
+    <div *ngFor="let item of items$ | async ; let i = index">
+        <todo-item [model]="item"
+                   [index]="i"
+                   (onCompleted)="isCompleted($event)"
+                   (onRemove)="remove($event)"
+                   (onUpdate)="update($event)">
+        </todo-item>
+    </div>
+</div>

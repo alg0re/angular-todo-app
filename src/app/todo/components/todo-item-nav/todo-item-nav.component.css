@@ -1,0 +1,12 @@
+.nav-link {
+  margin: .5rem;
+  padding: 0;
+}
+
+i {
+  color: #495057;
+}
+
+i:hover {
+  color: #adb5bd;
+}
