@@ -27,6 +27,7 @@ action: AuthActionUnion
       return {
         ...state,
         account: action.payload,
+        loggedIn: false,
         pending: true
       }
       case AuthActionTypes.LoginSuccess:
@@ -34,6 +35,7 @@ action: AuthActionUnion
           ...state,
           loggedIn: true,
           user: action.payload,
+          error: null,
           pending: false
         }
       case AuthActionTypes.LoginFailed:
@@ -42,6 +44,14 @@ action: AuthActionUnion
           error: action.payload,
           loggedIn: false,
           pending: false
+        }
+      case AuthActionTypes.Logout:
+        return {
+          ...state,
+          account: null,
+          user: null,
+          loggedIn: false,
+          error: null
         }
     default:
       return state;
