@@ -18,7 +18,7 @@ export class TodoEffects {
     switchMap(() => {
       return this.todoService.getTodos()
       .pipe(
-        map( items => new TodoActions.LoadSuccess(items)),
+        map(items => new TodoActions.LoadSuccess(items)),
         catchError(error => of(new TodoActions.LoadFailed(error)))
       );
     })

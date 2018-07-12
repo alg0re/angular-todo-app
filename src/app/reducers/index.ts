@@ -15,6 +15,7 @@ export const reducers: ActionReducerMap<State> = {
 export const getTodoState = createFeatureSelector<fromTodo.State>('todo');
 export const getTodoItems = createSelector(getTodoState, state => state.data);
 export const getLoading = createSelector(getTodoState, state => state.loading);
+export const getLoaded = createSelector(getTodoState, state => state.loaded);
 
 export const getAuthState = createFeatureSelector<fromAuth.State>('auth');
 export const getPending = createSelector(getAuthState, state => state.pending);

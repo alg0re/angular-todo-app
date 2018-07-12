@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable, timer } from 'rxjs';
-import { mapTo } from 'rxjs/operators';
+import { Observable, timer, of } from 'rxjs';
+import { mapTo, switchMap } from 'rxjs/operators';
+import { Store, select } from '@ngrx/store';
+import * as appState from '../../reducers';
 import { TodoItem } from '../models/todo-item.model';
 
 @Injectable()
 export class TodoLoadService {
-
-  constructor() { }
+  constructor(private store: Store<appState.State>) { }
 
   public getTodos(): Observable<TodoItem[]> {
     const items: TodoItem[] = [
@@ -16,6 +17,14 @@ export class TodoLoadService {
       {Title: 'title 4', IsCompleted: true}
     ];
 
-    return timer(3000).pipe(mapTo(items));
+    return this.store.pipe(
+      select(appState.getLoaded),
+      switchMap((loaded) => {
+        if (loaded) {
+          return of([]);
+        } else {
+          return timer(3000).pipe(mapTo(items))
+        }
+      }));
   }
 }

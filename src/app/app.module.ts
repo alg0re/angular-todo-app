@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { reducers } from './reducers';
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +22,11 @@ import { reducers } from './reducers';
     EffectsModule.forRoot([]),
     TodoModule,
     AuthModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreDevtoolsModule.instrument({
+      name: 'Todo App Dev Tools',
+      logOnly: true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

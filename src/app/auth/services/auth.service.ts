@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, throwError, of, timer } from 'rxjs';
-import { mapTo, mergeMap, mergeMapTo } from 'rxjs/operators';
+import { mapTo, mergeMapTo } from 'rxjs/operators';
 import { Account } from '../models/account.model';
 import { User } from '../models/user.model';
 
 @Injectable()
 export class AuthService {
 
-  public login(account: Account): Observable<any> {
+  public login(account: Account): Observable<User> {
     const test = new Account({ Login: 'test', Password: '12345' });
 
     if (!test.equals(account)) {

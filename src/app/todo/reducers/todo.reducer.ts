@@ -3,11 +3,13 @@ import { TodoItem } from '../models/todo-item.model';
 
 export interface State {
   data: TodoItem[],
+  loaded: boolean,
   loading: boolean
 }
 
 export const initialState: State = {
   data: [],
+  loaded: false,
   loading: false
 }
 
@@ -26,11 +28,13 @@ export function todoReducer(
       return {
         ...state,
         data: [...loadedItems, ...state.data],
+        loaded: true,
         loading: false
       }
     case TodoActionTypes.LoadFailed:
       return {
         ...state,
+        loaded: false,
         loading: false
       }
     case TodoActionTypes.Create:
